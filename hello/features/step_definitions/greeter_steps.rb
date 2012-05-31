@@ -1,3 +1,10 @@
+class CucumberGreeter
+  def greet
+    "Hello Cucumber!"
+  end
+end
+
+
 Given /^a greeter$/ do 
   @greeter = CucumberGreeter.new
 end
