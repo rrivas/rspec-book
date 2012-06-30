@@ -16,7 +16,11 @@ module Codebreaker
       (0..3).each do |index|
         if exact_match?(guess, index)
           mark << '+'
-        elsif number_match?(guess, index) 
+        end
+      end
+      
+      (0..3).each do |index|
+        if number_match?(guess, index)
           mark << '-'
         end
       end
@@ -29,7 +33,7 @@ module Codebreaker
     end
 
     def number_match?(guess, index)
-      @secret.include?(guess[index])
+      @secret.include?(guess[index]) && !exact_match?(guess, index)
     end
   end
 end
